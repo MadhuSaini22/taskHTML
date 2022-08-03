@@ -1,0 +1,133 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.heading {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+#cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.card {
+  width: 23%;
+  box-shadow: 0 0 4px 3px rgb(86, 82, 82);
+  text-align: center;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  height: auto;
+}
+.card img {
+  width: 70%;
+  height: 200px;
+}
+.title,
+.category,
+.price {
+  font-weight: bold;
+  margin: 1em;
+
+  font-size: 1.2rem;
+}
+.title {
+  font-size: 1.5rem;
+}
+.description {
+  color: rgb(99, 93, 93);
+}
+.price {
+  color: rgb(68, 96, 96);
+}
+.main {
+  display: flex;
+  flex-direction: column;
+}
+input {
+  border-radius: 50px;
+
+  border-color: rgb(29, 160, 175);
+  font-size: 1.3rem;
+  align-self: center;
+  margin-bottom: 3.5rem;
+  padding: 4px;
+  height: 50px;
+  width: auto;
+}
+.sub {
+  display: flex;
+  justify-content: center;
+}
+button {
+  border-radius: 20px;
+  background-color: darkgreen;
+  color: white;
+  font-size: 1.2rem;
+  align-self: center;
+  margin-bottom: 3.5rem;
+  margin-left: 1rem;
+  padding: 4px;
+  height: 37px;
+  width: auto;
+  cursor:pointer;
+}
+
+select {
+  border-radius: 30px;
+  border-color: cornflowerblue;
+  border-width: 2px;
+  align-self: center;
+  margin-bottom: 3.5rem;
+  margin-left: 1rem;
+  padding: 4px;
+  height: 30px;
+  width: auto;
+}
+.pagination {
+  text-align: center;
+  margin: 30px 30px 60px;
+  user-select: none;
+}
+
+.pagination li {
+  display: inline-block;
+  margin: 5px;
+}
+.pagination li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  line-height: 45px;
+}
+.previous-page,
+.next-page {
+  background-color: #0ab1ce;
+  width: 80px;
+  border-radius: 45px;
+  cursor: pointer;
+}
+.current-page,
+.dots {
+  background-color: #ccc;
+  width: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.previous-page:hover {
+  transform: translate(-5px);
+}
+
+.next-page:hover {
+  transform: translate(5px);
+}
+.active {
+  background: #0ab1ce;
+}
+.disable {
+  background: #ccc;
+}
