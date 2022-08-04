@@ -138,3 +138,5 @@ function pageCall(e) {
     cards[i].style.display = "";
   }
 }
+let value=localStorage.getItem("madhu@gmail.com")
+console.log(value)
