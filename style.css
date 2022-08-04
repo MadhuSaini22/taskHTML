@@ -14,14 +14,34 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  width: 114em;
 }
 .card {
   width: 23%;
-  box-shadow: 0 0 4px 3px rgb(86, 82, 82);
   text-align: center;
   padding: 1.5rem;
   margin-bottom: 2rem;
   height: auto;
+}
+
+.card-btn {
+  width: 60%;
+  padding: 1rem;
+  font-size: 2rem;
+  border:none;
+  color: #3363ff;
+  border-radius: 0.4rem;
+}
+
+.grid-item {
+  border-radius: 0.4rem;
+  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+  transition: 0.2s;
+}
+
+.grid-item:hover {
+  transform: translateY(-0.5%);
+  box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.5);
 }
 .card img {
   width: 70%;
@@ -39,7 +59,7 @@
   font-size: 1.5rem;
 }
 .description {
-  color: rgb(99, 93, 93);
+  color: rgb(116, 113, 113);
 }
 .price {
   color: rgb(68, 96, 96);
@@ -50,8 +70,7 @@
 }
 input {
   border-radius: 50px;
-
-  border-color: rgb(29, 160, 175);
+  border-color: rgb(67, 68, 68);
   font-size: 1.3rem;
   align-self: center;
   margin-bottom: 3.5rem;
@@ -63,20 +82,6 @@ input {
   display: flex;
   justify-content: center;
 }
-button {
-  border-radius: 20px;
-  background-color: darkgreen;
-  color: white;
-  font-size: 1.2rem;
-  align-self: center;
-  margin-bottom: 3.5rem;
-  margin-left: 1rem;
-  padding: 4px;
-  height: 37px;
-  width: auto;
-  cursor:pointer;
-}
-
 select {
   border-radius: 30px;
   border-color: cornflowerblue;
@@ -87,7 +92,22 @@ select {
   padding: 4px;
   height: 30px;
   width: auto;
-}
+ }
+ .btn{ 
+ border-radius: 15px;
+ background-color: rgb(77, 243, 77);
+ color:black;
+ font-size: 1.2rem;
+ align-self: center;
+ margin-bottom: 3.5rem;
+ margin-left: 1rem;
+ padding: 9px;
+ height: 37px;
+ width: auto;
+ border:none;
+ cursor:pointer;
+ }
+/*
 .pagination {
   text-align: center;
   margin: 30px 30px 60px;
@@ -130,4 +150,4 @@ select {
 }
 .disable {
   background: #ccc;
-}
+} */

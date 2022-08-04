@@ -22,12 +22,18 @@ var sortedData;
 function reCall(data, sortedData, actualdata) {
   let dataRender = sortedData == undefined ? actualdata : sortedData;
   dataRender.map((product) => {
-    data += `<div class="card">
-      <h3 class="title" id="title"> ${product.title}</h3>
-      <img src=${product.image} alt="img">
-      <p class="description">${product.description}</p>
-      <p class="category">${product.category}</p>
-      <p class="price">Rs.${product.price}</p>
+    data += `<div class="card grid-item">
+    <div class="card-container">
+      <img class="card-img" src=${product.image} alt="img" />
+      <div class="card-content">
+        <h1 class="card-header title" id="title">${product.title}</h1>
+        <p class="card-text description">
+          ${product.description}
+        </p>
+        <button class="card-btn category">${product.category}</button>
+        <button class="card-btn price">Rs.${product.price} </button>
+      </div>
+    </div>
   </div>`;
   });
   return data;
