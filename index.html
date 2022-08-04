@@ -26,7 +26,7 @@
             placeholder="Search..."
           />
 
-          <button  class="btn" onClick="Reset()">Reset</button>
+          <button class="btn" onClick="Reset()">Reset</button>
 
           <select name="" id="filterdown" onChange="myFunction()">
             <option value="" selected="selected">--Filter By Category--</option>
@@ -45,29 +45,19 @@
       </div>
       <div id="cards" class="grid"></div>
 
-      <div class="pagination" id="pagination"></div>
-      <!-- <div class="pagination"> -->
-        <!-- <li class="page-item previous-page disable">
+      <div class="pagination">
+        <!-- <li class="page-item previous-page">
           <a class="page-link" href="#">Prev</a>
-        </li>
-        <li class="page-item current-page">
-          <a class="page-link" href="#">1</a>
-        </li>
-        <li class="page-item dots"><a class="page-link" href="#">...</a></li>
-        <li class="page-item current-page">
-          <a class="page-link" href="#">5</a>
-        </li>
-        <li class="page-item current-page">
-          <a class="page-link" href="#">6</a>
-        </li>
-        <li class="page-item dots"><a class="page-link" href="#">...</a></li>
-        <li class="page-item current-page">
-          <a class="page-link" href="#">10</a>
-        </li>
-        <li class="page-item next-page">
+        </li> -->
+        <li class="page-item current-page active" id="1" onclick="pageCall(this.id)">1</li>
+        <li class="page-item current-page active" id="2" onclick="pageCall(this.id)">2</li>
+        <li class="page-item current-page active" id="3" onclick="pageCall(this.id)">3</li>
+        <li class="page-item current-page active" id="4" onclick="pageCall(this.id)">4</li>
+        <li class="page-item current-page active" id="5" onclick="pageCall(this.id)">5</li>
+        <!-- <li class="page-item next-page">
           <a class="page-link" href="#">Next</a>
         </li> -->
-      <!-- </div> -->
+      </div>
     </div>
   </body>
 </html>

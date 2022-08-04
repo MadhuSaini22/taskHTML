@@ -1,3 +1,7 @@
+var notToChange;
+var originalData;
+var sortedData;
+
 fetch("https://fakestoreapi.com/products")
   .then((data) => {
     return data.json();
@@ -8,16 +12,12 @@ fetch("https://fakestoreapi.com/products")
     notToChange = [...actualdata];
     data = reCall(data, sortedData, actualdata);
     document.getElementById("cards").innerHTML = data;
+    pageCall(1)
     // console.log(actualdata);
   })
   .catch((error) => {
     console.log(error);
   });
-  
-var notToChange;
-var originalData;
-var sortedData;
-
 
 function reCall(data, sortedData, actualdata) {
   let dataRender = sortedData == undefined ? actualdata : sortedData;
@@ -38,7 +38,6 @@ function reCall(data, sortedData, actualdata) {
   });
   return data;
 }
-
 function filterForm() {
   let filter = document.getElementById("myInput").value;
   let exactValue = filter.toLowerCase();
@@ -116,175 +115,26 @@ function Sorting() {
       else return 0;
     });
   }
-console.log(originalData)
+  // console.log(originalData)
   let data = "";
   data = reCall(data, sortedData, notToChange);
   document.getElementById("cards").innerHTML = data;
-  
 }
 
-// function getPageList(totalPages, page, maxLength) {
-//   function range(start, end) {
-//     return Array.from(Array(end - start + 1), (_, i) => i + start);
-//   }
-//   var sideWidth = maxLength < 9 ? 1 : 2;
-//   var leftWidth = (maxLength - sideWidth * 2 - 3) >> 1;
-//   var rightWidth = (maxLength - sideWidth * 2 - 3) >> 1;
+function pageCall(e) {
+  if (e == 1) start = 1;
+  else if (e == 2) start = 5;
+  else if (e == 3) start = 9;
+  else if (e == 4) start = 13;
+  else if (e == 5) start = 17;
 
-//   if (totalPages <= maxLength) {
-//     return range(1, totalPages);
-//   }
-
-//   if (page <= maxLength - sideWidth - 1 - rightWidth) {
-//     return range(1, maxLength - sideWidth - 1).concat(
-//       0,
-//       range(totalPages - sideWidth + 1, totalPages)
-//     );
-//   }
-//   if (page >= maxLength - sideWidth - 1 - rightWidth) {
-//     return range(1, sideWidth).concat(
-//       0,
-//       range(totalPages - sideWidth - 1 - rightWidth - leftWidth, totalPages)
-//     );
-//   }
-
-//   return range(1, sideWidth).concat(
-//     0,
-//     range(page - leftWidth, page + rightWidth),
-//     0,
-//     range(totalPages - sideWidth + 1, totalPages)
-//   );
-// }
-
-
-let madhu;
-fetch("https://fakestoreapi.com/products")
-  .then((data) => {
-    return data.json();
-  })
-  .then((actualdata) => {
-  madhu=actualdata;
-  console.log(actualdata);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
-  
-console.log(madhu)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const list_elements = document.getElementById('cards')
-const pagination_element = document.getElementById('pagination')
-
-let current_page=1;
-let rows=5;
-
-function displayList(items, wrapper, rows_per_page, page){
-  wrapper.innerHTML = "";
-  page--;
-
-  let start = rows_per_page * page;
-  let end = start+rows_per_page;
-  
-  let paginatedItems = items.slice(start,end);
-  // console.log(paginatedItems)
-
-  for(let i=o; i<paginatedItems.length;i++){
-    console.log(items[i])
+  let container = document.getElementById("cards");
+  let cards = container.getElementsByClassName("card");
+  for (var i = 0; i < 20; i++) {
+    cards[i].style.display = "none";
   }
 
-
+  for (var i = start - 1; i < e * 4; i++) {
+    cards[i].style.display = "";
+  }
 }
-// displayList(list_items,list_elements,rows,current_page)
-
-
-
-
-
-
-
-
-
-
-// document.addEventListener("DOMContentLoaded", function(event) {
-//   console.log("DOM fully loaded and parsed");
-// });
-
-
-
-// $(function () {
-//       var numberOfItems = $(".cards .card").length;
-//       var limitPerPage = 3;
-//       var totalPages = Math.ceil(numberOfItems / limitPerPage);
-//       var paginationSize = 7;
-//       var currentPage;
-    
-//       function showPage(whichPage) {
-//         if (whichPage < 1 || whichPage > totalPages) return false;
-//         currentPage = whichPage;
-//         $(".cards .card")
-//           .hide()
-//           .slice((currentPage - 1) * limitPerPage, currentPage * limitPerPage)
-//           .show();
-    
-//         $(".pagination li").slice(1, -1).remove();
-    
-//         getPageList(totalPages, currentPage, paginationSize).forEach((item) => {
-//           $("<li>")
-//             .addClass("page-item")
-//             .addClass(item ? "cards" : "dots")
-//             .toggleClass("active", item === currentPage)
-//             .append(
-//               $("<a>")
-//                 .addClass("page-link")
-//                 .attr({ href: "javascript:void(0)" })
-//                 .text(item || "...")
-//             )
-//             .insertBefore(".next-page");
-//         });
-    
-//         $(".previous-page").toggleClass("disable", currentPage === 1);
-//         $(".next-page").toggleClass("disable", currentPage === totalPages);
-//         return true;
-//       }
-//       $(".pagination").append(
-//         $("<li>")
-//           .addClass("page-item")
-//           .addClass("previous-page")
-//           .append(
-//             $("<a>")
-//               .addClass("page-link")
-//               .attr({ href: "javascript:void(0)" })
-//               .text("Prev")
-//           ),
-//         $("<li>")
-//           .addClass("page-item")
-//           .addClass("next-page")
-//           .append(
-//             $("<a>")
-//               .addClass("page-link")
-//               .attr({ href: "javascript:void(0)" })
-//               .text("Next")
-//           )
-//       );
-    
-//       $(".cards").show();
-//       showPage(2);
-//     });  
-

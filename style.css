@@ -28,7 +28,7 @@
   width: 60%;
   padding: 1rem;
   font-size: 2rem;
-  border:none;
+  border: none;
   color: #3363ff;
   border-radius: 0.4rem;
 }
@@ -92,62 +92,60 @@ select {
   padding: 4px;
   height: 30px;
   width: auto;
- }
- .btn{ 
- border-radius: 15px;
- background-color: rgb(77, 243, 77);
- color:black;
- font-size: 1.2rem;
- align-self: center;
- margin-bottom: 3.5rem;
- margin-left: 1rem;
- padding: 9px;
- height: 37px;
- width: auto;
- border:none;
- cursor:pointer;
- }
-/*
+}
+.btn {
+  border-radius: 15px;
+  background-color: #0ab1ce;
+  color: white;
+  font-size: 1.2rem;
+  align-self: center;
+  margin-bottom: 3.5rem;
+  margin-left: 1rem;
+  padding: 9px;
+  height: 37px;
+  width: auto;
+  border: none;
+  cursor: pointer;
+}
+
 .pagination {
   text-align: center;
   margin: 30px 30px 60px;
-  user-select: none;
 }
-
 .pagination li {
   display: inline-block;
   margin: 5px;
 }
-.pagination li a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.2rem;
-  line-height: 45px;
-}
-.previous-page,
-.next-page {
-  background-color: #0ab1ce;
-  width: 80px;
-  border-radius: 45px;
-  cursor: pointer;
-}
-.current-page,
-.dots {
+.current-page {
   background-color: #ccc;
   width: 45px;
+  height:45px;  
+  padding-top:13px;
   border-radius: 50%;
   cursor: pointer;
-}
-.previous-page:hover {
-  transform: translate(-5px);
-}
-
-.next-page:hover {
-  transform: translate(5px);
 }
 .active {
   background: #0ab1ce;
 }
-.disable {
-  background: #ccc;
-} */
+@media only screen and (max-width: 600px) {
+  body {
+    margin: 0 auto;
+    padding: 0px;
+  }
+  .sub{
+    display: flex;
+    flex-direction:column;
+  }
+  #cards {
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+  }
+  .card {
+    align-self: center;
+    color: white;
+    width: 90%;
+    text-align: center;
+    padding: 1.5rem;
+  }
+}
