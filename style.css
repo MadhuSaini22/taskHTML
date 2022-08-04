@@ -119,22 +119,38 @@ select {
 .current-page {
   background-color: #ccc;
   width: 45px;
-  height:45px;  
-  padding-top:13px;
+  height: 45px;
+  padding-top: 13px;
   border-radius: 50%;
   cursor: pointer;
 }
 .active {
   background: #0ab1ce;
 }
+
+.sign {
+  background-color: #04aa6d;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.sign:hover {
+  opacity: 1;
+}
 @media only screen and (max-width: 600px) {
   body {
     margin: 0 auto;
     padding: 0px;
   }
-  .sub{
+  .sub {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
   }
   #cards {
     width: fit-content;
