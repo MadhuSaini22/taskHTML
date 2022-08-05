@@ -12,7 +12,7 @@ fetch("https://fakestoreapi.com/products")
     notToChange = [...actualdata];
     data = reCall(data, sortedData, actualdata);
     document.getElementById("cards").innerHTML = data;
-    pageCall(1)
+    pageCall(1);
     // console.log(actualdata);
   })
   .catch((error) => {
@@ -138,5 +138,11 @@ function pageCall(e) {
     cards[i].style.display = "";
   }
 }
-let value=localStorage.getItem("madhu@gmail.com")
-console.log(value)
+
+
+
+
+
+
+
+
