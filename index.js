@@ -71,11 +71,7 @@ function Reset() {
   let sortedData = undefined;
   data = reCall(data, sortedData, notToChange);
   document.getElementById("cards").innerHTML = data;
-  // let container = document.getElementById("cards");
-  // let cards = container.getElementsByClassName("card");
-  // for (var i = 0; i < cards.length; i++) {
-  //   cards[i].style.display = "";
-  // }
+  
 }
 
 function myFunction() {
@@ -115,7 +111,6 @@ function Sorting() {
       else return 0;
     });
   }
-  // console.log(originalData)
   let data = "";
   data = reCall(data, sortedData, notToChange);
   document.getElementById("cards").innerHTML = data;
@@ -138,11 +133,7 @@ function pageCall(e) {
     cards[i].style.display = "";
   }
 }
-
-
-
-
-
-
-
-
+$(document).ready(function () {
+  document.getElementById("userIn").innerHTML ="Welcome " +
+  localStorage.getItem("UserName");
+});

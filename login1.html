@@ -141,30 +141,21 @@
         title="Close Modal"
         >&times;</span
       >
-      <form class="modal-content" id="form">
+      <form class="modal-content">
         <div class="container">
-          <h1>Sign Up</h1>
-          <p>Please fill in this form to create an account.</p>
+          <h1>Login</h1>
           <hr />
-
-          <label for="name"><b>name</b></label>
-          <input
-            id="name"
-            type="text"
-            placeholder="Enter name"
-            name="name"
-            required
-          />
 
           <label for="email"><b>Email</b></label>
           <input
             id="email"
             type="text"
+             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
             placeholder="Enter Email"
             name="email"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
             required
           />
+          
 
           <label for="psw"><b>Password</b></label>
           <input
@@ -174,20 +165,6 @@
             name="psw"
             required
           />
-
-          <label for="psw-repeat"><b>Repeat Password</b></label>
-          <input
-            id="cpassword"
-            type="password"
-            placeholder="Repeat Password"
-            name="psw-repeat"
-            required
-          />
-
-          <p>
-            By creating an account you agree to our
-            <a href="#" style="color: dodgerblue">Terms & Privacy</a>.
-          </p>
 
           <div class="clearfix">
             <button
@@ -206,8 +183,6 @@
     </div>
 
     <script>
-   
-
       window.onload = function () {
         document.getElementById("id01").style.display = "block";
       };
@@ -220,13 +195,11 @@
         }
       };
 
-      
-
       function handleData(particularUser) {
         return new Promise((resolve, reject) => {
-          // console.log("your data is", particularUser);
+        //   console.log("your data is", particularUser);
           var eleEmail = particularUser["email"];
-          // console.log(particularUser["email"]);
+        //   console.log(particularUser["email"]);
           const request1 = indexedDB.open("Users", 1);
 
           let allData;
@@ -262,12 +235,12 @@
             var allRecords = store.getAll();
             allRecords.onsuccess = function () {
               allData = allRecords.result;
-              // console.log("all data" + JSON.stringify(allData));
+              //   console.log("all data" + JSON.stringify(allData));
 
               var specificValuesFromArray = allData.find(
                 (item) => item.email == eleEmail
               );
-              // console.log(JSON.stringify(specificValuesFromArray));
+              console.log(JSON.stringify(specificValuesFromArray));
               //  console.log("specificValuesFromArray:" + specificValuesFromArray['email'], eleEmail);
 
               if (specificValuesFromArray != undefined) {
@@ -281,103 +254,25 @@
       }
 
       function takeData() {
-        // localStorage.getItem("incremental")
-        // if (sessionStorage["incremental"] == undefined) {
-        //   sessionStorage.setItem("incremental", 9);
-        // }
-
-        var name = document.getElementById("name").value;
         var email = document.getElementById("email").value;
         var password = document.getElementById("password").value;
-        var cpassword = document.getElementById("cpassword").value;
+        // console.log(email, password);
 
-        if (cpassword != password) {
-          alert("confirm password doesn't matched");
-        } else {
-          // console.log(name, email, password, cpassword);
+        const objectNow = {
+          email: `${email}`,
+          password: `${password}`,
+        };
+        console.log("helloooooo" + JSON.stringify(objectNow));
+        handleData(objectNow).then((data) => {
+          //   console.log("dataaaaaaaa:", data);
 
-          const objectNow = {
-            name: `${name}`,
-            email: `${email}`,
-            password: `${password}`,
-          };
-          // console.log("helloooooo" + JSON.stringify(objectNow));
-          handleData(objectNow).then((data) => {
-            // console.log("dataaaaaaaa:", data);
-
-            if (data == false) {
-              alert("user already exists");
-            } else if (data) {
-              // sessionStorage["incremental"] =
-              //   parseInt(sessionStorage["incremental"]) + 1;
-              // var sessioncount = parseInt(sessionStorage["incremental"]);
-              // console.log(sessioncount);
-              const request1 = indexedDB.open("Users", 1);
-
-              request1.onerror = function (event) {
-                console.error("An error occured with IndexedDB");
-                console.error(event);
-              };
-
-              request1.onupgradeneeded = function () {
-                const db = request1.result;
-
-                const store = db.createObjectStore("users", { keyPath: "id" });
-
-                store.createIndex("user_name", ["name"], { unique: true });
-
-                store.createIndex("email_password", ["email", "password"], {
-                  unique: true,
-                });
-              };
-
-              request1.onsuccess = function () {
-                console.log("Database opened successfully");
-
-                const db = request1.result;
-
-                const transaction = db.transaction("users", "readwrite");
-
-                const store = transaction.objectStore("users");
-                const name_Index = store.index("user_name");
-                const email_Index = store.index("email_password");
-
-                store.put({
-                  id: 13,
-                  name: `${name}`,
-                  email: `${email}`,
-                  password: `${password}`,
-                });
-
-                const idQuery = store.get(13);
-
-                // const nameQuery = name_Index.get(["madhu"]);
-                // const emailPasswordQuery = email_Index.getAll([
-                //   "singh@email.com",
-                //   "abc",
-                // ]);
-
-                // 5
-                // idQuery.onsuccess = function () {
-                //   console.log("idQuery", idQuery.result);
-                // };
-                // nameQuery.onsuccess = function () {
-                //   console.log("nameQuery", nameQuery.result);
-                // };
-                // emailPasswordQuery.onsuccess = function () {
-                //   console.log("emailPasswordQuery", emailPasswordQuery.result);
-                // };
-
-                // 6
-                transaction.oncomplete = function () {
-                  db.close();
-                };
-
-                window.location.pathname = "index.html";
-              };
-            }
-          });
-        }
+          if (data) {
+            alert("User with this email doesn't exists");
+          } else if (data == false) {
+            localStorage.setItem("UserName", `${email}`); //to set value
+            window.location.pathname = "index.html";
+          }
+        });
       }
     </script>
   </body>
