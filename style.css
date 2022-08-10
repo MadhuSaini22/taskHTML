@@ -19,7 +19,7 @@ body {
   flex-wrap: wrap;
 }
 .card {
-  width: 23%;
+  width: 20%;
   text-align: center;
   overflow: hidden;
   margin-bottom: 2rem;
@@ -34,7 +34,7 @@ body {
 }
 .card img {
   width: 65%;
-  height: 200px;
+  height: 350px;
 }
 .description {
   color: rgb(62, 64, 65);
@@ -44,8 +44,10 @@ body {
 
 .title {
   font-weight: bold;
-  margin: 1em;
   font-size: 1.2rem;
+}
+.title, .description {
+  white-space: nowrap;
 }
 
 .img-container {
@@ -53,8 +55,11 @@ body {
 }
 .category,
 .price {
-  margin: 1em;
   font-size: 1.2rem;
+}
+.category,.title, .price,.description{
+  text-align: left;
+  margin: 1em;
 }
 .img-container{
   background-color: #a29393;
