@@ -24,14 +24,19 @@ function reCall(data, sortedData, actualdata) {
   dataRender.map((product) => {
     data += `<div class="card grid-item">
     <div class="card-container">
-      <img class="card-img" src=${product.image} alt="img" />
+      <div class="img-container">
+        <img class="card-img" src=${product.image} alt="img" />
+      </div>  
+      
       <div class="card-content">
         <h1 class="card-header title" id="title">${product.title}</h1>
-        <p class="card-text description">
-          ${product.description}
-        </p>
-        <button class="card-btn category">${product.category}</button>
-        <button class="card-btn price">Rs.${product.price} </button>
+        <div class="desc">
+          <p class="card-text description">
+         ${product.description}
+         </p>
+        </div>       
+        <p class="card-btn category">${product.category}</p>
+        <p class="card-btn price">Rs.${product.price} </p>
       </div>
     </div>
   </div>`;
@@ -71,7 +76,6 @@ function Reset() {
   let sortedData = undefined;
   data = reCall(data, sortedData, notToChange);
   document.getElementById("cards").innerHTML = data;
-  
 }
 
 function myFunction() {
@@ -132,8 +136,26 @@ function pageCall(e) {
   for (var i = start - 1; i < e * 4; i++) {
     cards[i].style.display = "";
   }
+ }
+// $(document).ready(function () {
+//   document.getElementById("userIn").innerHTML =
+//     "Welcome " + localStorage.getItem("UserName");
+// });
+
+
+function myFunction() {
+  $('#myDropdown').toggleClass('show');
 }
-$(document).ready(function () {
-  document.getElementById("userIn").innerHTML ="Welcome " +
-  localStorage.getItem("UserName");
-});
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
