@@ -20,73 +20,85 @@ body {
   padding-top: 30px;
 }
 #cards {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
 }
 .card {
-  width: 20%;
+  border: 1.3px solid rgb(221, 215, 215);
   text-align: center;
   overflow: hidden;
   margin-bottom: 2rem;
   background-color: white;
-  height: auto;
   border-radius: 0.7rem;
-  margin:10px;
-  max-height:400px;
 }
 .card:hover {
   opacity: 0.7;
   /* transform: translateY(-0.5%);
   box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.5); */
 }
+
 .card img {
-  width: 95%;
-  max-height: 200px;
+  max-height: 260px;
   padding: 15px;
+  max-width: 300px;
 }
-.container{
+.container {
   max-width: 1200px;
   justify-content: center;
   align-items: center;
+  margin: auto;
+}
+header {
+  background-color: white;
+  padding: 4px 0px;
 }
 .description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   color: rgb(62, 64, 65);
-  font-weight: inherit;
-  letter-spacing: 1px;
 }
-
 .title {
-  font-size: 18px;
-  color: black;
-  line-height: 24px;
-  font-weight: 450;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.title,
+/* .title,
 .description {
   white-space: nowrap;
-}
-.price {
+} */
+.price,
+.title {
   color: #4b5563;
-  line-height: 24px;
   font-weight: 500;
 }
 .category,
+.title,
 .price {
-  font-size: 1.2rem;
+  font-size: 16px;
+}
+.card-content {
+  padding: 10px !important;
 }
 .category,
 .title,
 .price,
 .description {
   text-align: left;
-  margin: 0.4em;
+  margin-left: 0.4em;
 }
 .img-container {
   background-color: #e7e6e6;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .category {
   color: #5a6676;
+  font-style: italic;
 }
 .main {
   display: flex;
@@ -94,33 +106,38 @@ body {
 }
 input {
   border: 1px solid rgb(211, 205, 205);
-  font-size: 1.3rem;
   align-self: center;
-  margin-bottom: 3.5rem;
-  padding: 4px;
-  height: 50px;
-  width: auto;
-  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  padding: 4px 16px;
+  height: 39px;
+  width: 300px;
+  border-radius: 5px;
+}
+::placeholder {
+  font-size: 15px;
 }
 input:focus {
   outline: none;
   border-width: 3px;
-  border-color: #9791ea;
+  border-color: #635ce0;
+  border-width: 2px;
 }
 
 .sub {
   display: flex;
+  padding: 10px;
   justify-content: center;
 }
 select {
   border-radius: 6px;
   border-width: 2px;
   align-self: center;
-  margin-bottom: 3.5rem;
+  margin-bottom: 1.5rem;
   margin-left: 1rem;
-  padding: 4px;
-  height: 30px;
-  width: auto;
+  padding: 4px 16px;
+
+  height: 39px;
+  width: 200px;
   border: 1px solid rgb(211, 205, 205);
 }
 .btn {
@@ -129,10 +146,10 @@ select {
   color: white;
   font-size: 1.2rem;
   align-self: center;
-  margin-bottom: 3.5rem;
+  margin-bottom: 1.5rem;
   margin-left: 1rem;
-  height: 37px;
-  width: 60px;
+  height: 36px;
+  width: 90px;
   border: none;
   cursor: pointer;
   padding: 0;
@@ -140,11 +157,10 @@ select {
 
 .pagination {
   text-align: center;
-  margin: 30px 30px 60px;
 }
 .pagination li {
   display: inline-block;
-  font-size: 20px;
+  font-size: 16px;
   color: rgb(149, 142, 142);
   margin: 5px;
   padding: 7px;
@@ -180,6 +196,7 @@ select {
 hr {
   width: 80%;
   margin: auto;
+  margin-top: 15px;
   height: 1px;
   background-color: rgb(232, 227, 227);
   border: none;
@@ -192,7 +209,6 @@ hr {
 }
 nav {
   background-color: white;
-  padding: 4px;
   display: flex;
   justify-content: space-between;
 }
@@ -204,27 +220,28 @@ nav {
 }
 
 .dropdown-content {
-  right: 20%;
-  bottom: 69%;
+  right: 19%;
+  bottom: 82%;
   display: none;
   position: absolute;
   background-color: white !important;
-  min-width: 160px;
+  min-width: 200px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   border-radius: 5px;
+  border: 1px solid rgb(221, 218, 218);
 }
 
 .dropdown-content a {
   float: none;
   color: black;
-  padding: 14px 16px;
+  padding: 5px 5px 5px 10px;
   text-decoration: none;
   display: block;
 }
 
 .dropdown-content a:hover {
-  background-color: rgb(252, 250, 250);
+  background-color: rgb(245, 244, 244);
   color: black;
 }
 
@@ -232,10 +249,6 @@ nav {
   display: block;
   opacity: 1;
   z-index: 11;
-}
-.container {
-  max-width: 1000px;
-  margin: auto;
 }
 .product-container {
   max-width: 1500px;
@@ -246,6 +259,11 @@ nav {
   align-items: center;
   display: flex;
 }
+.spinnerContainer{
+  display: flex;
+  justify-content: center;
+  align-items:center;
+}
 @media screen and (max-width: 600px) {
   body {
     margin: 0 auto;
@@ -255,29 +273,12 @@ nav {
     display: flex;
     flex-direction: column !important;
   }
-  #cards {
-    display: flex;
-    flex-direction: column !important;
-    justify-content: center;
-    align-items: center;
-  }
-  .card img {
-    width: 50% !important;
-    height: 200px;
-  }
-  .card {
-    padding: 3px;
-    margin: 0px 5px 10px 5px;
-    width: 90% !important ;
-  }
-  #myInput,
-  .btn {
+
+  #myInputm .btn {
     margin-bottom: 5px;
     height: 30px;
   }
-  select {
-    margin-bottom: 10px;
-  }
+
   .heading {
     font-size: 1.5rem;
   }
@@ -289,21 +290,12 @@ nav {
   }
   .sub {
     display: flex;
-    flex-direction: row;
+    flex-direction: column !important;
   }
-  #cards {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+
+  .heading {
+    font-size: 1.5rem;
   }
-  .card {
-    padding: 3px;
-    margin: 0px 5px 10px 5px;
-    width: 44% !important;
-    height:350px;
-  }
- 
 }
 @media (min-width: 951px) and (max-width: 1250px) {
   #cards {
@@ -311,12 +303,5 @@ nav {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-  }
-  .card {
-    padding: 3px;
-    margin: 0px 5px 10px 5px;
-    width: 30% !important;
-    height:350px;
-
   }
 }

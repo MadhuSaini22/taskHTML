@@ -1,86 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
 
-  <script type="text/javascript" src="index.js"></script>
+    <link rel="stylesheet" href="style.css" />
 
-  <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-</head>
+  <body>
+    <div>
+      <div class="main">
+        <header>
+          <div class="container">
+            <nav>
+              <img src="ss.png" />
+              <!-- <img id="profile" src="ss1.png" /> -->
 
-<body>
-  <div>
-    <div class="main">
-      <header>
-        <div class="container">
-          <nav>
-            <img src="ss.png" />
-            <!-- <img id="profile" src="ss1.png" /> -->
+              <div class="dropdown1">
+                <img
+                  class="dropbtn"
+                  id="profile"
+                  src="ss1.png"
+                  onclick="myFunction()"
+                />
 
-            <div class="dropdown1">
-              <img class="dropbtn" id="profile" src="ss1.png" onclick="myFunction()" />
-
-              <div class="dropdown-content" id="myDropdown">
-                <a href="signup.html">Signup</a>
-                <a href="login1.html">Sign In</a>
-                <a href="#">Log Out</a>
+                <div class="dropdown-content" id="myDropdown">
+                  <a href="signup.html">Signup</a>
+                  <a href="login1.html">Sign In</a>
+                  <a href="#" onclick="logout()">Log Out</a>
+                </div>
               </div>
-            </div>
-          </nav>
+            </nav>
+          </div>
+        </header>
+        <div id="userIn"></div>
+
+        <h4 class="heading">Simple website using HTML & Javascript</h4>
+        <div class="sub">
+          <input
+            type="search"
+            name="searching"
+            id="myInput"
+            onkeyup="filterForm()"
+            placeholder="Search..."
+          />
+
+          <button class="btn" onClick="Reset()">Reset</button>
+
+          <select name="" id="filterdown" onChange="filterByCategory()">
+            <option value="" selected="selected">--Filter By Category--</option>
+            <option value="Men">Men's Clothing</option>
+            <option value="Jewelery">Jewelery</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Women">Women's Clothing</option>
+          </select>
+
+          <select name="" id="sortdown" onChange="Sorting()">
+            <option value="" selected="selected">-Sorting Based on-</option>
+            <option value="Price">Price</option>
+            <option value="Category">Category</option>
+          </select>
         </div>
-      </header>
-   
-      <h4 class="heading">Simple website using HTML & Javascript</h4>
-      <div class="sub">
-        <input type="search" name="searching" id="myInput" onkeyup="filterForm()" placeholder="Search..." />
+      </div>
 
-        <button class="btn" onClick="Reset()">Reset</button>
+      <div class="container">
+        <div class="spinnerContainer">
+          <img
+            id="spinner"
+            src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"
+            alt="image"
+          />
+        </div>
 
-        <select name="" id="filterdown" onChange="filterByCategory()">
-          <option value="" selected="selected">--Filter By Category--</option>
-          <option value="Men">Men's Clothing</option>
-          <option value="Jewelery">Jewelery</option>
-          <option value="Electronics">Electronics</option>
-          <option value="Women">Women's Clothing</option>
-        </select>
-
-        <select name="" id="sortdown" onChange="Sorting()">
-          <option value="" selected="selected">-Sorting Based on-</option>
-          <option value="Price">Price</option>
-          <option value="Category">Category</option>
-        </select>
+        <div id="cards" class="grid"></div>
+      </div>
+      <hr />
+      <div class="pagination">
+        <li
+          class="page-item current-page active"
+          id="1"
+          onclick="pageCall(this.id)"
+        >
+          1
+        </li>
+        <li
+          class="page-item current-page active"
+          id="2"
+          onclick="pageCall(this.id)"
+        >
+          2
+        </li>
+        <li
+          class="page-item current-page active"
+          id="3"
+          onclick="pageCall(this.id)"
+        >
+          3
+        </li>
+        <li
+          class="page-item current-page active"
+          id="4"
+          onclick="pageCall(this.id)"
+        >
+          4
+        </li>
+        <li
+          class="page-item current-page active"
+          id="5"
+          onclick="pageCall(this.id)"
+        >
+          5
+        </li>
       </div>
     </div>
-    <div class="product-container">
-      <div id="cards" class="grid"></div>
-
-    </div>
-    <hr />
-    <div class="pagination">
-      <li class="page-item current-page active" id="1" onclick="pageCall(this.id)">
-        1
-      </li>
-      <li class="page-item current-page active" id="2" onclick="pageCall(this.id)">
-        2
-      </li>
-      <li class="page-item current-page active" id="3" onclick="pageCall(this.id)">
-        3
-      </li>
-      <li class="page-item current-page active" id="4" onclick="pageCall(this.id)">
-        4
-      </li>
-      <li class="page-item current-page active" id="5" onclick="pageCall(this.id)">
-        5
-      </li>
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>

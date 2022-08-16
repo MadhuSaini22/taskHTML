@@ -150,12 +150,11 @@
           <input
             id="email"
             type="text"
-             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
             placeholder="Enter Email"
             name="email"
             required
           />
-          
 
           <label for="psw"><b>Password</b></label>
           <input
@@ -175,7 +174,7 @@
               Cancel
             </button>
             <button type="submit" onclick="takeData()" class="signupbtn">
-              Sign Up
+              Login
             </button>
           </div>
         </div>
@@ -197,9 +196,9 @@
 
       function handleData(particularUser) {
         return new Promise((resolve, reject) => {
-        //   console.log("your data is", particularUser);
+          //   console.log("your data is", particularUser);
           var eleEmail = particularUser["email"];
-        //   console.log(particularUser["email"]);
+          //   console.log(particularUser["email"]);
           const request1 = indexedDB.open("Users", 1);
 
           let allData;

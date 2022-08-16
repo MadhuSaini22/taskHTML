@@ -12,12 +12,19 @@ fetch("https://fakestoreapi.com/products")
     notToChange = [...actualdata];
     data = reCall(data, sortedData, actualdata);
     document.getElementById("cards").innerHTML = data;
+    let imageElem = document.getElementById("spinner");
+    imageElem.style.display = "none";
     pageCall(1);
     // console.log(actualdata);
   })
   .catch((error) => {
     console.log(error);
   });
+
+// let loader = `hello`;
+// document.getElementById('cards').innerHTML = loader;
+// const imageEl = document.querySelector("#spinner")
+// imageEl.setAttribute("src", "https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif")
 
 function reCall(data, sortedData, actualdata) {
   let dataRender = sortedData == undefined ? actualdata : sortedData;
@@ -29,7 +36,7 @@ function reCall(data, sortedData, actualdata) {
       </div>  
       
       <div class="card-content">
-        <h1 class="card-header title" id="title">${product.title}</h1>
+        <p class="card-header title" id="title">${product.title}</p>
         <div class="desc">
           <p class="card-text description">
          ${product.description}
@@ -138,10 +145,22 @@ function pageCall(e) {
     cards[i].style.display = "";
   }
 }
-// $(document).ready(function () {
-//   document.getElementById("userIn").innerHTML =
-//     "Welcome " + localStorage.getItem("UserName");
-// });
+$(document).ready(function () {
+  let name = localStorage.getItem("UserName");
+  logoutHelper(name);
+});
+
+function logoutHelper(name) {
+  if (name == null) {
+    document.getElementById("userIn").innerHTML = "Welcome " + "ghost";
+  } else {
+    document.getElementById("userIn").innerHTML = "Welcome " + name;
+  }
+}
+
+function logout() {
+  localStorage.removeItem("UserName");
+}
 
 function myFunction() {
   $("#myDropdown").toggleClass("show");
@@ -159,3 +178,5 @@ window.onclick = function (event) {
     }
   }
 };
+
+
