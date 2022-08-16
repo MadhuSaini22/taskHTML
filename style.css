@@ -36,6 +36,11 @@ body {
   width: 65%;
   height: 350px;
 }
+.container{
+  max-width: 1200px;
+  justify-content: center;
+  align-items: center;
+}
 .description {
   color: rgb(62, 64, 65);
   font-weight: inherit;
