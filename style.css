@@ -1,21 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Inter&display=swap");
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  /* font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-style: normal;
+  line-height: 28px;
 }
 body {
   background-color: rgb(235, 240, 240);
 }
 .heading {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 1.5rem;
-  padding-top:30px;
+  padding-top: 30px;
 }
 #cards {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-wrap: wrap;
 }
 .card {
@@ -26,6 +32,8 @@ body {
   background-color: white;
   height: auto;
   border-radius: 0.7rem;
+  margin:10px;
+  max-height:400px;
 }
 .card:hover {
   opacity: 0.7;
@@ -33,8 +41,9 @@ body {
   box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.5); */
 }
 .card img {
-  width: 65%;
-  height: 350px;
+  width: 95%;
+  max-height: 200px;
+  padding: 15px;
 }
 .description {
   color: rgb(62, 64, 65);
@@ -43,32 +52,36 @@ body {
 }
 
 .title {
-  font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 18px;
+  color: black;
+  line-height: 24px;
+  font-weight: 450;
 }
-.title, .description {
+.title,
+.description {
   white-space: nowrap;
 }
-
-.img-container {
-  background-color: white;
+.price {
+  color: #4b5563;
+  line-height: 24px;
+  font-weight: 500;
 }
 .category,
 .price {
   font-size: 1.2rem;
 }
-.category,.title, .price,.description{
+.category,
+.title,
+.price,
+.description {
   text-align: left;
-  margin: 1em;
+  margin: 0.4em;
 }
-.img-container{
-  background-color: #a29393;
+.img-container {
+  background-color: #e7e6e6;
 }
 .category {
-  color: rgb(137, 134, 134);
-}
-.title {
-  font-size: 1.2rem;
+  color: #5a6676;
 }
 .main {
   display: flex;
@@ -84,6 +97,12 @@ input {
   width: auto;
   border-radius: 10px;
 }
+input:focus {
+  outline: none;
+  border-width: 3px;
+  border-color: #9791ea;
+}
+
 .sub {
   display: flex;
   justify-content: center;
@@ -101,17 +120,17 @@ select {
 }
 .btn {
   border-radius: 5px;
-  background-color: #0ab1ce;
+  background-color: #4f46e5;
   color: white;
   font-size: 1.2rem;
   align-self: center;
   margin-bottom: 3.5rem;
   margin-left: 1rem;
-  padding: 9px;
   height: 37px;
-  width: auto;
+  width: 60px;
   border: none;
   cursor: pointer;
+  padding: 0;
 }
 
 .pagination {
@@ -164,6 +183,7 @@ hr {
   height: 40px;
   width: 40px;
   border-radius: 50%;
+  cursor: pointer;
 }
 nav {
   background-color: white;
@@ -175,37 +195,51 @@ nav {
 .dropdown {
   float: right;
   overflow: hidden;
-  padding-top:6px;
+  cursor: pointer;
 }
 
 .dropdown-content {
-  right:0;
+  right: 20%;
+  bottom: 69%;
   display: none;
   position: absolute;
-  background-color: #8c8787 !important;
+  background-color: white !important;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  opacity: 0; 
+  border-radius: 5px;
 }
 
 .dropdown-content a {
   float: none;
-  color: white;
+  color: black;
   padding: 14px 16px;
   text-decoration: none;
   display: block;
 }
 
 .dropdown-content a:hover {
-  background-color: #a29393;
-  color:black;
+  background-color: rgb(252, 250, 250);
+  color: black;
 }
 
 .show {
   display: block;
   opacity: 1;
   z-index: 11;
+}
+.container {
+  max-width: 1000px;
+  margin: auto;
+}
+.product-container {
+  max-width: 1500px;
+  margin: auto;
+}
+.dropdown1 {
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 @media screen and (max-width: 600px) {
   body {
@@ -223,7 +257,7 @@ nav {
     align-items: center;
   }
   .card img {
-    width: 50%;
+    width: 50% !important;
     height: 200px;
   }
   .card {
@@ -260,10 +294,11 @@ nav {
   }
   .card {
     padding: 3px;
-    height: 780px !important;
     margin: 0px 5px 10px 5px;
     width: 44% !important;
+    height:350px;
   }
+ 
 }
 @media (min-width: 951px) and (max-width: 1250px) {
   #cards {
@@ -274,8 +309,9 @@ nav {
   }
   .card {
     padding: 3px;
-    height: 850px;
     margin: 0px 5px 10px 5px;
     width: 30% !important;
+    height:350px;
+
   }
 }
