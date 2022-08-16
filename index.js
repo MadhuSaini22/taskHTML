@@ -78,9 +78,10 @@ function Reset() {
   document.getElementById("cards").innerHTML = data;
 }
 
-function myFunction() {
+function filterByCategory() {
   var e = document.getElementById("filterdown");
   var text = e.options[e.selectedIndex].text.toLowerCase();
+  console.log(text);
   let container = document.getElementById("cards");
   let cards = container.getElementsByClassName("card");
   for (var i = 0; i < cards.length; i++) {
@@ -136,26 +137,25 @@ function pageCall(e) {
   for (var i = start - 1; i < e * 4; i++) {
     cards[i].style.display = "";
   }
- }
+}
 // $(document).ready(function () {
 //   document.getElementById("userIn").innerHTML =
 //     "Welcome " + localStorage.getItem("UserName");
 // });
 
-
 function myFunction() {
-  $('#myDropdown').toggleClass('show');
+  $("#myDropdown").toggleClass("show");
 }
 
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
+window.onclick = function (event) {
+  if (!event.target.matches(".dropbtn")) {
     var dropdowns = document.getElementsByClassName("dropdown-content");
     var i;
     for (i = 0; i < dropdowns.length; i++) {
       var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
+      if (openDropdown.classList.contains("show")) {
+        openDropdown.classList.remove("show");
       }
     }
   }
-}
+};
